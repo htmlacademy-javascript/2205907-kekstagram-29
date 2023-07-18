@@ -1,5 +1,5 @@
 const lengthCheck = function (str, length) {
-  return str.length === length
+  return str.length === length;
 };
 
 lengthCheck();
