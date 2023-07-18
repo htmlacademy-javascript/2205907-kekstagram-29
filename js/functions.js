@@ -22,6 +22,7 @@ const integerNumber = function (str) {
       result = result + str[i];
     }
   }
+
   return parseInt(result, 10);
 };
 
