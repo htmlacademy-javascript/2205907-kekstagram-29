@@ -1,8 +1,5 @@
 const lengthCheck = function (str, length) {
-  if (str.length === length) {
-    return true;
-  }
-  return false;
+  return str.length === length;
 };
 
 lengthCheck();
@@ -11,10 +8,7 @@ const reverse = (s) => s.split('').reverse().join('');
 
 const isPalindrome = function (str) {
   const editedText = str.trim().toLowerCase();
-  if (editedText === reverse(editedText)) {
-    return true;
-  }
-  return false;
+  return editedText === reverse(editedText);
 };
 
 isPalindrome();
