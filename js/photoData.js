@@ -22,10 +22,7 @@ const jpgGenerator = photoUrlGenerator('jpg'); // As there are 25 photos existed
 const svgGenerator = avatarUrlGenerator('svg');// As there are 6 avatar existed
 
 //Function creates an object with necessary data
-// let currentNumber = 0;
-
 const getPhotoInfo = (i) => {
-  // const currentId = i++;
   const randomNameIndex = getRandomInteger(0, AVATAR_NAMES.length - 1);
   const randomCommentIndex = getRandomInteger(0, COMMENTS_TEXT.length - 1);
 

@@ -1,5 +1,5 @@
-// import './data.js';
-import {otherUsersPhoto} from './photorender.js';
+import {otherUsersPhoto} from './photoRender.js';
+import './photoRender.js';
 import './commentGenerator.js';
 
 const fullSizeView = document.querySelector('.big-picture');
