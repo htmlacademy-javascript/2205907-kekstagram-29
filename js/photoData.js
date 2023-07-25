@@ -22,13 +22,14 @@ const jpgGenerator = photoUrlGenerator('jpg'); // As there are 25 photos existed
 const svgGenerator = avatarUrlGenerator('svg');// As there are 6 avatar existed
 
 //Function creates an object with necessary data
-const getPhotoInfo = (i) => {
+const getPhotoInfo = (id) => {
+  // const id = i++;
   const randomNameIndex = getRandomInteger(0, AVATAR_NAMES.length - 1);
   const randomCommentIndex = getRandomInteger(0, COMMENTS_TEXT.length - 1);
 
   return {
-    id: i++,
-    url: jpgGenerator(i++),
+    id: id,
+    url: jpgGenerator(id),
     description: 'Хорошее фото',
     likes:getRandomInteger(15, 200),
     comments: {
@@ -40,6 +41,6 @@ const getPhotoInfo = (i) => {
   };
 };
 
-const createPhotosData = () => Array.from({length: 25}, (_, i) => getPhotoInfo(i));
+const createPhotosData = () => Array.from({length: 25}, (_, id) => getPhotoInfo(id + 1));
 
 export {createPhotosData, getPhotoInfo };
