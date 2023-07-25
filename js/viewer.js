@@ -1,6 +1,5 @@
-import './data.js';
-import {otherUsersPhoto} from './render.js';
-import './render.js';
+import {otherUsersPhoto} from './photorender.js';
+import './photorender.js';
 import './commentGenerator.js';
 
 const fullSizeView = document.querySelector('.big-picture');
@@ -53,24 +52,25 @@ for (let i = 0; i < photos.length; i++) {
   });
 }
 
-backToAllView.addEventListener('click' , () => {
+const commentSystemText = `${currentCommentsShown + COMMEN_LOAD_STEP} из ${arrayOfPhotoComments.length} комментариев`;
+function choosenPhotoHide () {
   fullSizeView.classList.add('hidden');
   document.body.classList.remove('modal-open');
   arrayOfPhotoComments.forEach((el) => el.classList.add('hidden'));
   commentShowMore.classList.remove('hidden');
   currentCommentsShown = 0;
-  currentCommentShownNumber.textContent = `${currentCommentsShown + COMMEN_LOAD_STEP} из ${arrayOfPhotoComments.length} комментариев`;
+}
+
+backToAllView.addEventListener('click' , () => {
+  choosenPhotoHide();
+  currentCommentShownNumber.textContent = commentSystemText;
 });
 
 document.addEventListener('keydown', (evt) => {
   if (evt.keyCode === 27) {
     evt.preventDefault();
-    fullSizeView.classList.add('hidden');
-    document.body.classList.remove('modal-open');
-    arrayOfPhotoComments.forEach((el) => el.classList.add('hidden'));
-    commentShowMore.classList.remove('hidden');
-    currentCommentsShown = 0;
-    currentCommentShownNumber.textContent = `${currentCommentsShown + COMMEN_LOAD_STEP} из ${arrayOfPhotoComments.length} комментариев`;
+    choosenPhotoHide();
+    currentCommentShownNumber.textContent = commentSystemText;
   }
 });
 
@@ -87,7 +87,7 @@ commentShowMore.addEventListener('click', () => {
     commentShowMore.classList.add('hidden');
   }
 
-  if(commentShowMore.classList.contains('hidden') === true) {
+  if(commentShowMore.classList.contains('hidden')) {
     currentCommentShownNumber.textContent = `${arrayOfPhotoComments.length} из ${arrayOfPhotoComments.length} комментариев`;
   }
 });
