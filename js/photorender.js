@@ -1,6 +1,5 @@
 import {createPhotosData} from './photoData.js';
 
-
 const photoList = document.querySelector('.pictures');
 const photoTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
