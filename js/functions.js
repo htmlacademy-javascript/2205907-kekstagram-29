@@ -15,9 +15,8 @@ isPalindrome();
 
 const integerNumber = function (str) {
   let result = '';
-  let i = 0;
 
-  for (i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     if (!Number.isNaN(parseInt(str[i], 10))) {
       result = result + str[i];
     }
